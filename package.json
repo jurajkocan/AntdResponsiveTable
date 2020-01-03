@@ -5,6 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "build": "rm -rf ./lib && tsc",
+    "css": "node style.js",
     "prepare": "npm run build"
   },
   "keywords": [
