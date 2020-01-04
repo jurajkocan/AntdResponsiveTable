@@ -3,6 +3,10 @@
   "version": "1.0.1",
   "description": "responsive ant design table ",
   "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jurajkocan/AntdResponsiveTable"
+  },
   "scripts": {
     "build": "rm -rf ./lib && tsc",
     "css": "node style.js",
