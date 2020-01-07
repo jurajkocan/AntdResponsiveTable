@@ -1,7 +1,7 @@
 {
   "name": "ant-responsive-table",
-  "version": "1.0.5",
-  "description": "responsive ant design table ",
+  "version": "1.0.6",
+  "description": "responsive ant design table",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
@@ -16,10 +16,11 @@
     "antdesing",
     "antd",
     "table",
-    "responsie"
+    "responsive",
+    "react"
   ],
   "author": "juraj kocan",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
