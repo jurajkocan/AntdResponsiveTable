@@ -89,7 +89,9 @@ class ResponsiveTable extends React.Component<props, state> {
   public render() {
     const desktopTableProps = this.props.antTableProps;
     // @ts-ignore
-    desktopTableProps.columns = desktopTableProps.columns.filter((col: additionalCols) => col.showOnDesktop);
+    desktopTableProps.columns = desktopTableProps.columns.filter(
+      (col: additionalCols) => col.showOnDesktop
+    );
 
     return (
       <div>
@@ -191,3 +193,5 @@ class ResponsiveTable extends React.Component<props, state> {
     );
   }
 }
+
+export default ResponsiveTable;

@@ -10,7 +10,7 @@
   "scripts": {
     "build": "rm -rf ./lib && tsc",
     "css": "node style.js",
-    "prepare": "npm run build"
+    "prepare": "npm run build && npm run css"
   },
   "keywords": [
     "ant",
@@ -29,6 +29,11 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "typestyle": "^2.0.4"
+  },
+  "peerDependencies": {
+    "antd": "^3.26.5",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "dependencies": {}
 }
