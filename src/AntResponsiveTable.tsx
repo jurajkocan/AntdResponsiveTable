@@ -10,8 +10,17 @@ import Pagination from "antd/lib/pagination";
 import Spin from "antd/lib/spin";
 import Table, { ColumnProps, TableProps } from "antd/lib/table";
 import * as React from "react";
-import { style, media } from "typestyle";
+import { style, media, getStyles } from "typestyle";
 
+if (typeof window !== "undefined" && typeof document !== "undefined") {
+  const head = document.head || document.getElementsByTagName("head")[0];
+  const styleTag = document.createElement("style");
+
+  head.appendChild(styleTag);
+
+  styleTag.type = "text/css";
+  styleTag.appendChild(document.createTextNode(getStyles()));
+}
 const ResponsiveTableStyle = {
   showOnBreakPoint: (breakPoint: number, display: string = "block") =>
     style(

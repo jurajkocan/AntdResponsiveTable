@@ -1,16 +1,15 @@
 {
   "name": "ant-responsive-table",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "responsive ant design table ",
-  "main": "index.ts",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/jurajkocan/AntdResponsiveTable"
   },
   "scripts": {
     "build": "rm -rf ./lib && tsc",
-    "css": "node style.js",
-    "prepare": "npm run build && npm run css"
+    "prepare": "npm run build"
   },
   "keywords": [
     "ant",
