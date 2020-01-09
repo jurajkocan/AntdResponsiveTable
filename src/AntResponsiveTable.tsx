@@ -4,7 +4,7 @@
  * then it will render custom html for responsive design
  */
 
-import Card from "antd/lib/card";
+import Card, { CardProps } from "antd/lib/card";
 import Divider from "antd/lib/divider";
 import Pagination from "antd/lib/pagination";
 import Spin from "antd/lib/spin";
@@ -48,6 +48,8 @@ const ResponsiveTableStyle = {
       )
     ),
 
+  customRow: style({}),
+
   spinContainer: style({
     display: "block",
     position: "absolute",
@@ -85,6 +87,7 @@ type props = {
   antTableProps: TableProps<any> & {
     columns: additionalCols[];
   };
+  cardProps: CardProps;
   mobileBreakPoint: number;
 };
 type state = {};
@@ -138,58 +141,49 @@ class ResponsiveTable extends React.Component<props, state> {
                   : undefined;
 
                 return (
-                  <div key={rowData.key} style={{ marginBottom: 10 }}>
-                    <Card hoverable {...onRow}>
-                      {this.props.antTableProps.columns
-                        ? this.props.antTableProps.columns.map(
-                            (colData: additionalCols, index) => {
-                              return colData.showOnResponse ? (
-                                <div key={`${rowData.key}${colData.key}`}>
-                                  <div style={{ display: "flex" }}>
-                                    <div
-                                      style={{
-                                        width: "35%",
-                                        paddingRight: 5,
-                                        textAlign: "right"
-                                      }}
-                                    >
-                                      {colData.title ? (
-                                        <b>{colData.title}:</b>
-                                      ) : null}
-                                    </div>
-                                    <div
-                                      style={{ width: "65%", paddingLeft: 5 }}
-                                    >
-                                      {colData.key
-                                        ? colData.render
-                                          ? colData.render(
-                                              rowData[colData.key],
-                                              undefined,
-                                              1
-                                            )
-                                          : rowData[colData.key]
-                                        : null}
-                                    </div>
+                  <Card key={rowData.key} {...this.props.cardProps} {...onRow}>
+                    {this.props.antTableProps.columns
+                      ? this.props.antTableProps.columns.map(
+                          (colData: additionalCols, index) => {
+                            return colData.showOnResponse ? (
+                              <div key={`${rowData.key}${colData.key}`}>
+                                <div style={{ display: "flex" }}>
+                                  <div
+                                    style={{
+                                      width: "35%",
+                                      paddingRight: 5,
+                                      textAlign: "right"
+                                    }}
+                                  >
+                                    {colData.title ? (
+                                      <b>{colData.title}:</b>
+                                    ) : null}
                                   </div>
-                                  {this.props.antTableProps.columns ? (
-                                    index + 1 ===
-                                    this.props.antTableProps.columns
-                                      .length ? null : (
-                                      <Divider
-                                        style={{
-                                          marginTop: 24,
-                                          marginBottom: 24
-                                        }}
-                                      />
-                                    )
-                                  ) : null}
+                                  <div style={{ width: "65%", paddingLeft: 5 }}>
+                                    {colData.key
+                                      ? colData.render
+                                        ? colData.render(
+                                            rowData[colData.key],
+                                            undefined,
+                                            1
+                                          )
+                                        : rowData[colData.key]
+                                      : null}
+                                  </div>
                                 </div>
-                              ) : null;
-                            }
-                          )
-                        : null}
-                    </Card>
-                  </div>
+                                {this.props.antTableProps.columns ? (
+                                  index + 1 ===
+                                  this.props.antTableProps.columns
+                                    .length ? null : (
+                                    <Divider />
+                                  )
+                                ) : null}
+                              </div>
+                            ) : null;
+                          }
+                        )
+                      : null}
+                  </Card>
                 );
               })
             )}
