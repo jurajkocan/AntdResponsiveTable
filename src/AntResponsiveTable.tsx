@@ -78,24 +78,22 @@ const ResponsiveTableStyle = {
   })
 };
 
-type additionalCols = ColumnProps<any> & {
+export type additionalCols = ColumnProps<any> & {
   showOnResponse: boolean;
   showOnDesktop: boolean;
 };
 
-type props = {
+export type props = {
   antTableProps: TableProps<any> & {
     columns: additionalCols[];
   };
   cardProps: CardProps;
   mobileBreakPoint: number;
 };
-type state = {};
 
-class ResponsiveTable extends React.Component<props, state> {
+class ResponsiveTable extends React.Component<props> {
   constructor(props: props) {
     super(props);
-    this.state = {};
   }
 
   public render() {
