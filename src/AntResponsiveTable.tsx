@@ -162,8 +162,8 @@ class ResponsiveTable extends React.Component<props> {
                                       ? colData.render
                                         ? colData.render(
                                             rowData[colData.key],
-                                            undefined,
-                                            1
+                                            rowData,
+                                            index
                                           )
                                         : rowData[colData.key]
                                       : null}
